@@ -14,7 +14,7 @@ Create a new branch from `master` and call it `convelio-test`.
 
 - Launch the app in a browser.
 
-### SCSS and BEM part
+### SCSS and BEM part
 
 *The CSS theme relies on SCSS and [BEM methodology](https://en.bem.info/methodology/quick-start/).* 
 
@@ -25,18 +25,21 @@ Text content does not matter ; you will find the image in the assets ; use **exi
 - Write down the CSS classes compiled from `_block.scss`. You can write it in the `BLOCK-CSS-CLASSES.md` file.
 - Commit your changes and push it on your new branch.
 
-##### BONUS
+##### BONUS
+
 - The grid system works well but the `col-` classes are missing some rules to be fully responsive. Add those rules in the CSS theme ; you may use **existing mixins**.
 - Commit your changes and push it on your new branch.
 
 ### Angular part
+
 - Display order details on the `OrderDetail` page : `number`, `from`, `to`, `price`. **Use existing routing** (you may add logic to it using *existing files*...).
 
 > No design model here so you're free to integrate it as you wish but try to make it "look like" the other pages as much as possible.
 - Create the `OrderModel` (in the `models` folder) and type objects where needed.
 - Commit your changes and push it on your new branch.
 
-##### BONUS
+##### BONUS
+
 - Create two pages : one to display the list of `Drafts` (see `/assets/data.json`), and one to display the details of a specific `Draft`. You may rely on the existing app structure (`services`, `routing`, `modules`, ...).
 - Commit your changes and push it on your new branch.
 
