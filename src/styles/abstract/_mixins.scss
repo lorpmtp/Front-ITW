@@ -1,0 +1,52 @@
+// MIXINS
+@mixin set-colors($text: $text-color, $bg: $container-bg-color) {
+  color: $text;
+  background: $bg;
+};
+
+@mixin respond-to($media) {
+  @if $media == phone {
+    @media only screen and (max-width: $xs-screen) { @content; }
+  }
+  @else if $media == not-phone {
+    @media only screen and (min-width: $xs-screen + 1) { @content; }
+  }
+  @else if $media == small {
+    @media only screen and (max-width: $small-screen) { @content; }
+  }
+  @else if $media == not-small {
+    @media only screen and (min-width: $small-screen + 1) { @content; }
+  }
+  @else if $media == medium {
+    @media only screen and (max-width: $medium-screen) { @content; }
+  }
+  @else if $media == not-medium {
+    @media only screen and (min-width: $medium-screen + 1) { @content; }
+  }
+  @else if $media == not-large {
+    @media only screen and (max-width: $large-screen) { @content; }
+  }
+  @else if $media == large {
+    @media only screen and (min-width: $large-screen + 1) { @content; }
+  }
+}
+
+@mixin horizontal-margin($margin) {
+  margin-left: $margin;
+  margin-right: $margin;
+}
+
+@mixin vertical-margin($margin) {
+  margin-top: $margin;
+  margin-bottom: $margin;
+}
+
+@mixin horizontal-padding($padding) {
+  padding-left: $padding;
+  padding-right: $padding;
+}
+
+@mixin vertical-padding($padding) {
+  padding-top: $padding;
+  padding-bottom: $padding;
+}

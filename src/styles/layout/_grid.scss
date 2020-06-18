@@ -1,0 +1,30 @@
+.container{
+  max-width: $container-max-width;
+  width: 100%;
+  margin: auto;
+  @include horizontal-padding($gutter-size);
+
+  @include respond-to(small) {
+    @include horizontal-padding($gutter-size/2);
+  }
+}
+
+.col-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  @include horizontal-margin(-$gutter-size);
+
+  @include respond-to(small) {
+    @include horizontal-margin(-$gutter-size/2);
+    flex-direction: column;
+  }
+}
+
+@for $i from 1 through $nb-of-columns {
+  .col-#{$i}{
+    position: relative;
+    flex: 0 0 $i/$nb-of-columns * 100%;
+    max-width: $i/$nb-of-columns * 100%;
+    @include horizontal-padding($gutter-size);
+  }
+}

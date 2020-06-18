@@ -1,0 +1,45 @@
+// BLOCK
+.block{
+  @include set-colors;
+  margin-bottom: $gutter-size;
+  padding: $gutter-size;
+  border-radius: $border-radius;
+
+  // ELEMENT
+  &-title{
+    @extend %important-text;
+    font-size: 30px;
+    margin-bottom: $gutter-size/2;
+
+    // MODIFIERS
+    &.--underlined{
+      text-decoration: underline;
+    }
+  }
+
+  // ELEMENT
+  &-subtitle{
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: $gutter-size/3;
+  }
+
+  // ELEMENT
+  &-paragraph{
+    &:not(:last-child){
+      margin-bottom: $gutter-size/3;
+    }
+
+    // MODIFIERS
+    &.--important{
+      @extend %important-text;
+    }
+
+    &.--panel{
+      @include set-colors($container-bg-color, $primary-color);
+      padding: $gutter-size/2;
+      display: inline-block;
+      border-radius: $border-radius;
+    }
+  }
+}
