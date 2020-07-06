@@ -1,4 +1,7 @@
+import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { Order } from 'src/app/models/order.model';
 
 @Component({
   selector: 'app-order-detail',
@@ -7,8 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderDetailComponent implements OnInit {
 
-  constructor() { }
+  orderList: Order;
 
-  ngOnInit() {}
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit() {
+    this.route.data.subscribe(data => this.orderList = data.orderList);
+  }
 
 }

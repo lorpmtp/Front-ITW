@@ -1,1 +1,21 @@
-<p>order-detail works!</p>
+<div class="block">
+    <h2 class="block-subtitle">Order #{{ orderList.id }} detail</h2>
+    <table class="orders-detail">
+        <thead class="orders-detail-header">
+            <tr>
+                <td class="order-detail --number">number</td>
+                <td class="order-detail --address">from</td>
+                <td class="order-detail --address">to</td>
+                <td class="order-detail --price">price</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="order">
+                <td class="order-detail --number">{{orderList.number}}</td>
+                <td class="order-detail --address">{{orderList.from}}</td>
+                <td class="order-detail --address">{{orderList.to}}</td>
+                <td class="order-detail --price">{{orderList.price}}€</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

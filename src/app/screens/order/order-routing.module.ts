@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { OrderListComponent } from './order-list/order-list.component';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
+import { OrderListResolver } from 'src/app/services/order-list.resolver';
 
 const routes: Routes = [
   {
@@ -11,7 +12,10 @@ const routes: Routes = [
   },
   {
     path: ':orderId',
-    component: OrderDetailComponent
+    component: OrderDetailComponent,
+    resolve: {
+      orderList: OrderListResolver
+    }
   }
 ];
 
