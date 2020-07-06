@@ -35,6 +35,10 @@
       @extend %important-text;
     }
 
+    &.--shiny{
+      @extend %shiny-text;
+    }
+
     &.--panel{
       @include set-colors($container-bg-color, $primary-color);
       padding: $gutter-size/2;
