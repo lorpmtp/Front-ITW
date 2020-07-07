@@ -1,7 +1,9 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { OrderService } from '../../../services/order.service';
+import { Order } from 'src/app/models/order.model';
 
 @Component({
   selector: 'app-order-list',
@@ -10,14 +12,20 @@ import { OrderService } from '../../../services/order.service';
 })
 export class OrderListComponent implements OnInit {
 
-  orders: Observable<any[]>;
+  orderList: Order[];
+  draft: boolean;
 
   constructor(
-    private orderService: OrderService
+    private route: ActivatedRoute
   ) {
-    this.orders = orderService.getOrders();
+    
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.route.data.subscribe(data => {
+      this.orderList = data.orderList;
+      this.draft = data.draft;
+    });
+  }
 
 }

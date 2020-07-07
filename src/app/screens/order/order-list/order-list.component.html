@@ -3,16 +3,16 @@
   <table class="orders-list">
     <thead class="orders-list-header">
       <tr>
-        <td class="order-detail --number">number</td>
+        <td class="order-detail --number">{{ draft ? 'name' : 'number' }}</td>
         <td class="order-detail --address">from</td>
         <td class="order-detail --address">to</td>
         <td class="order-detail --price">price</td>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let order of orders | async" class="order">
+      <tr *ngFor="let order of orderList" class="order">
         <td class="order-detail --number">
-          <a [routerLink]="[order.id]">{{order.number}}</a>
+          <a [routerLink]="(route.data.draft | async) ? ['draft/' + order.id] : [order.id]">{{ draft ? order.name : order.number }} </a>
         </td>
         <td class="order-detail --address">{{order.from}}</td>
         <td class="order-detail --address">{{order.to}}</td>

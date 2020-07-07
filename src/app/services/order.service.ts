@@ -1,3 +1,4 @@
+import { Draft } from './../models/draft.model';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -14,15 +15,15 @@ export class OrderService {
     private apiService: ApiService
   ) {}
 
-  public getOrders(): Observable<Order[]> {
+  public getOrders(drafts: boolean): Observable<Order[] | Draft[]> {
     return this.apiService.get().pipe(
-      map(res => res.orders)
+      map(res => drafts ? res.drafts : res.orders)
     );
   }
 
-  public getOrderById(orderId: string): Observable<Order> {
+  public getOrderById(orderId: string, drafts: boolean): Observable<Order | Draft> {
     return this.apiService.get().pipe(
-      map(res => res.orders.find(order => order.id === orderId))
+      map(res => res[drafts ? 'drafts' : 'orders'].find(order => order.id === orderId))
     );
   }
 }

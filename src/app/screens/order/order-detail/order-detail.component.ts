@@ -10,12 +10,16 @@ import { Order } from 'src/app/models/order.model';
 })
 export class OrderDetailComponent implements OnInit {
 
-  orderList: Order;
+  orderDetail: Order;
+  draft: boolean;
 
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.route.data.subscribe(data => this.orderList = data.orderList);
+    this.route.data.subscribe(data => {
+      this.orderDetail = data.orderDetail;
+      this.draft = data.draft;
+    });
   }
 
 }
